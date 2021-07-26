@@ -110,13 +110,17 @@
 //!     });
 //! }).unwrap();
 //! ```
+#![no_std]
+use std::prelude::v1::*;
+
+use std::thread::SgxThread as Thread;
 
 use std::fmt;
 use std::io;
 use std::marker::PhantomData;
 use std::mem;
 use std::panic;
-use std::sync::{Arc, Mutex};
+use std::sync::{Arc,SgxMutex as Mutex};
 use std::thread;
 
 use crate::sync::WaitGroup;
@@ -366,7 +370,7 @@ impl<'scope, 'env> ScopedThreadBuilder<'scope, 'env> {
     ///
     /// [stack-size]: std::thread#stack-size
     pub fn stack_size(mut self, size: usize) -> ScopedThreadBuilder<'scope, 'env> {
-        self.builder = self.builder.stack_size(size);
+        self.builder = self.builder; //.stack_size(size)
         self
     }
 
@@ -481,7 +485,7 @@ pub struct ScopedJoinHandle<'scope, T> {
     result: SharedOption<T>,
 
     /// A handle to the the spawned thread.
-    thread: thread::Thread,
+    thread: Thread,//thread::Thread,
 
     /// Borrows the parent scope with lifetime `'scope`.
     _marker: PhantomData<&'scope ()>,
@@ -538,15 +542,15 @@ impl<T> ScopedJoinHandle<'_, T> {
     ///     println!("The child thread ID: {:?}", handle.thread().id());
     /// }).unwrap();
     /// ```
-    pub fn thread(&self) -> &thread::Thread {
+    pub fn thread(&self) -> &Thread {
         &self.thread
-    }
+    } //&thread::Thread
 }
 
 cfg_if! {
     if #[cfg(unix)] {
+        //use std::os::unix::thread::{JoinHandleExt, RawPthread};
         use std::os::unix::thread::{JoinHandleExt, RawPthread};
-
         impl<T> JoinHandleExt for ScopedJoinHandle<'_, T> {
             fn as_pthread_t(&self) -> RawPthread {
                 // Borrow the handle. The handle will surely be available because the root scope waits

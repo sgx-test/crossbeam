@@ -1,3 +1,5 @@
+#![no_std]
+use std::prelude::v1::*;
 use core::fmt;
 use core::ops::{Deref, DerefMut};
 
@@ -75,6 +77,7 @@ use core::ops::{Deref, DerefMut};
 //
 // Sources:
 // - https://github.com/golang/go/blob/3dd58676054223962cd915bb0934d1f9f489d4d2/src/internal/cpu/cpu_ppc64x.go#L9
+
 #[cfg_attr(
     any(
         target_arch = "x86_64",

@@ -1,3 +1,7 @@
+#![no_std]
+use std::prelude::v1::*;
+use std::untrusted::time::InstantEx;
+
 use crate::primitive::sync::atomic::AtomicUsize;
 use crate::primitive::sync::{Arc, Condvar, Mutex};
 use core::sync::atomic::Ordering::SeqCst;

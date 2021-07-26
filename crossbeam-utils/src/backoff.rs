@@ -1,3 +1,5 @@
+#![no_std]
+use std::prelude::v1::*;
 use crate::primitive::sync::atomic;
 use core::cell::Cell;
 use core::fmt;

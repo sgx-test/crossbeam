@@ -1,3 +1,5 @@
+#![no_std]
+use std::prelude::v1::*;
 #[cfg(any(target_arch = "arm", target_arch = "aarch64"))]
 use crate::primitive::sync::atomic::compiler_fence;
 #[cfg(not(crossbeam_no_atomic))]

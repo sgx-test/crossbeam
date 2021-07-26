@@ -1,7 +1,8 @@
 // Necessary for implementing atomic methods for `AtomicUnit`
 #![allow(clippy::unit_arg)]
 #![allow(clippy::let_unit_value)]
-
+#![no_std]
+use std::prelude::v1::*;
 use crate::primitive::sync::atomic::{self, AtomicBool};
 use core::cell::UnsafeCell;
 use core::fmt;
