@@ -1,5 +1,7 @@
 //! Interface to the select mechanism.
-
+#![no_std]
+use std::prelude::v1::*;
+use std::untrusted::time::InstantEx;
 use std::fmt;
 use std::marker::PhantomData;
 use std::mem;

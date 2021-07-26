@@ -1,5 +1,6 @@
 //! Reference counter for channels.
-
+#![no_std]
+use std::prelude::v1::*;
 use std::isize;
 use std::ops;
 use std::process;

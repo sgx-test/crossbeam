@@ -19,6 +19,9 @@
 ///
 /// If the parsing stage encounters a syntax error or the codegen stage ends up with too many
 /// cases to process, the macro fails with a compile-time error.
+
+use std::prelude::v1::*;
+
 #[doc(hidden)]
 #[macro_export]
 macro_rules! crossbeam_channel_internal {

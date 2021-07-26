@@ -1,5 +1,7 @@
 //! The channel interface.
-
+#![no_std]
+use std::prelude::v1::*;
+use std::untrusted::time::InstantEx;
 use std::fmt;
 use std::iter::FusedIterator;
 use std::mem;

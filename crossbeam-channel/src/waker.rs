@@ -1,5 +1,6 @@
 //! Waking mechanism for threads blocked on channel operations.
-
+#![no_std]
+use std::prelude::v1::*;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::thread::{self, ThreadId};
 

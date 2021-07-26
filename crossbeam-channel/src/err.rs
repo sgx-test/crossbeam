@@ -1,3 +1,5 @@
+#![no_std]
+use std::prelude::v1::*;
 use std::error;
 use std::fmt;
 

@@ -1,7 +1,8 @@
 //! Channel that never delivers messages.
 //!
 //! Messages cannot be sent into this kind of channel.
-
+#![no_std]
+use std::prelude::v1::*;
 use std::marker::PhantomData;
 use std::time::Instant;
 

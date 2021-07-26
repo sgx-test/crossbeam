@@ -1,5 +1,7 @@
 //! Miscellaneous utilities.
-
+#![no_std]
+use std::prelude::v1::*;
+use std::untrusted::time::InstantEx;
 use std::cell::{Cell, UnsafeCell};
 use std::num::Wrapping;
 use std::ops::{Deref, DerefMut};

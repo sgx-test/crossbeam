@@ -7,7 +7,9 @@
 //! Source:
 //!   - <http://www.1024cores.net/home/lock-free-algorithms/queues/bounded-mpmc-queue>
 //!   - <https://docs.google.com/document/d/1yIAYmbvL3JxOKOjuCyon7JhW4cSv1wy5hC0ApeGMV9s/pub>
-
+#![no_std]
+use std::prelude::v1::*;
+use std::untrusted::time::InstantEx;
 use std::cell::UnsafeCell;
 use std::marker::PhantomData;
 use std::mem::{self, MaybeUninit};

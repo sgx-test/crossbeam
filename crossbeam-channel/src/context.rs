@@ -1,9 +1,11 @@
 //! Thread-local context used in select.
-
+#![no_std]
+use std::prelude::v1::*;
+use std::untrusted::time::InstantEx;
 use std::cell::Cell;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::Arc;
-use std::thread::{self, Thread, ThreadId};
+use std::thread::{self, SgxThread as Thread, ThreadId};
 use std::time::Instant;
 
 use crossbeam_utils::Backoff;

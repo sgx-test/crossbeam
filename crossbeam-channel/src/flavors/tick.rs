@@ -2,6 +2,9 @@
 //!
 //! Messages cannot be sent into this kind of channel; they are materialized on demand.
 
+#![no_std]
+use std::prelude::v1::*;
+use std::untrusted::time::InstantEx;
 use std::thread;
 use std::time::{Duration, Instant};
 

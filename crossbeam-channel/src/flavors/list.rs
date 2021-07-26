@@ -1,5 +1,7 @@
 //! Unbounded channel implemented as a linked list.
-
+#![no_std]
+use std::prelude::v1::*;
+use std::untrusted::time::InstantEx;
 use std::cell::UnsafeCell;
 use std::marker::PhantomData;
 use std::mem::MaybeUninit;

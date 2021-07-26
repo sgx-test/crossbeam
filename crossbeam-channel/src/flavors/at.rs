@@ -1,7 +1,9 @@
 //! Channel that delivers a message at a certain moment in time.
 //!
 //! Messages cannot be sent into this kind of channel; they are materialized on demand.
-
+#![no_std]
+use std::prelude::v1::*;
+use std::untrusted::time::InstantEx;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::thread;
 use std::time::{Duration, Instant};
